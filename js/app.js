@@ -17,11 +17,44 @@ document.addEventListener('DOMContentLoaded', async () => {
   bindUIEvents();
   initRecorder();
   
-  // 預設載入第一則對話
-  if (allDialogues.length > 0) {
-    selectDialogue(allDialogues[0].id);
-  }
+  // 系統自動判斷今日月-日，導到相對應日期的對話
+  locateTodayDialogue();
 });
+
+// 取得今日月-日 (格式: MM-DD)
+function getTodayMMDD() {
+  const now = new Date();
+  const mm = String(now.getMonth() + 1).padStart(2, '0');
+  const dd = String(now.getDate()).padStart(2, '0');
+  return `${mm}-${dd}`;
+}
+
+// 格式化月日顯示 (例如 09-03 轉為 9月3日)
+function formatDisplayDate(mmdd) {
+  if (!mmdd) return '';
+  const parts = mmdd.split('-');
+  if (parts.length === 2) {
+    return `${parseInt(parts[0], 10)}月${parseInt(parts[1], 10)}日`;
+  }
+  return mmdd;
+}
+
+// 自動定位到今日對話
+function locateTodayDialogue() {
+  if (!allDialogues || allDialogues.length === 0) return;
+  const todayMMDD = getTodayMMDD();
+
+  // 優先尋找與今日日期完全相符的篇章
+  let target = allDialogues.find(d => d.date === todayMMDD);
+
+  // 若今日篇章未收錄（如在測試階段），優先選取當月或首篇
+  if (!target) {
+    const currentMonth = todayMMDD.split('-')[0];
+    target = allDialogues.find(d => d.date.startsWith(currentMonth)) || allDialogues[0];
+  }
+
+  selectDialogue(target.id);
+}
 
 // 載入對話資料
 async function loadDialoguesData() {
@@ -139,6 +172,22 @@ function bindUIEvents() {
     });
   }
 
+  // 前一天 / 後一天 / 今日 按鈕監聽 (支援全年循環)
+  const prevDayBtn = document.getElementById('prev-day-btn');
+  if (prevDayBtn) {
+    prevDayBtn.addEventListener('click', () => navigateDialogueByDay(-1));
+  }
+
+  const nextDayBtn = document.getElementById('next-day-btn');
+  if (nextDayBtn) {
+    nextDayBtn.addEventListener('click', () => navigateDialogueByDay(1));
+  }
+
+  const todayDayBtn = document.getElementById('today-day-btn');
+  if (todayDayBtn) {
+    todayDayBtn.addEventListener('click', () => locateTodayDialogue());
+  }
+
   // 鍵盤快速鍵支援（課堂電子白板與自主練習超方便）
   window.addEventListener('keydown', (e) => {
     // 若在輸入框內則不觸發
@@ -153,6 +202,12 @@ function bindUIEvents() {
     } else if (e.code === 'ArrowRight') {
       e.preventDefault();
       window.dialoguePlayer.seek(5);
+    } else if (e.key === '[' || e.key === 'BracketLeft') {
+      navigateDialogueByDay(-1);
+    } else if (e.key === ']' || e.key === 'BracketRight') {
+      navigateDialogueByDay(1);
+    } else if (e.key.toLowerCase() === 't') {
+      locateTodayDialogue();
     } else if (e.key === '1') {
       window.dialoguePlayer.setPlaybackRate('0.75');
     } else if (e.key === '2') {
@@ -165,6 +220,25 @@ function bindUIEvents() {
       document.getElementById('toggle-zh-btn')?.click();
     }
   });
+}
+
+// 依據天數前後循環切換 (offset: -1 為前一天, +1 為後一天)
+function navigateDialogueByDay(offset) {
+  if (!allDialogues || allDialogues.length === 0 || !currentDialogue) return;
+
+  const filtered = getFilteredDialogues();
+  const listToUse = filtered.length > 0 ? filtered : allDialogues;
+
+  const currentIndex = listToUse.findIndex(d => d.id === currentDialogue.id);
+  if (currentIndex === -1) return;
+
+  // 循環索引計算（全年閉環循環）
+  let targetIndex = (currentIndex + offset) % listToUse.length;
+  if (targetIndex < 0) {
+    targetIndex = listToUse.length - 1;
+  }
+
+  selectDialogue(listToUse[targetIndex].id);
 }
 
 // 取得篩選後的對話清單
@@ -183,7 +257,7 @@ function renderDialogueSelector() {
   const filtered = getFilteredDialogues();
   dropdown.innerHTML = filtered.map(item => `
     <option value="${item.id}" ${currentDialogue && currentDialogue.id === item.id ? 'selected' : ''}>
-      [${item.levelName}] ${item.date} - ${item.topic.zh} (${item.topic.en})
+      [${item.levelName}] ${formatDisplayDate(item.date)} - ${item.topic.zh} (${item.topic.en})
     </option>
   `).join('');
 }
@@ -208,14 +282,27 @@ function selectDialogue(dialogueId) {
   // 更新底部播放器正在朗讀標籤
   const currentTitleTag = document.getElementById('player-dialogue-title');
   if (currentTitleTag) {
-    currentTitleTag.textContent = `${target.levelName} · ${target.topic.en}`;
+    currentTitleTag.textContent = `${formatDisplayDate(target.date)} · ${target.levelName} · ${target.topic.en}`;
   }
 }
 
 // 渲染整頁對話與學習內容
 function renderDialogueCard(data) {
-  // 頂部看板
-  document.getElementById('dialogue-date-badge').textContent = `📅 ${data.date}`;
+  // 頂部看板日期與今日指示
+  const todayMMDD = getTodayMMDD();
+  const isToday = (data.date === todayMMDD);
+
+  document.getElementById('dialogue-date-badge').textContent = `📅 ${formatDisplayDate(data.date)}`;
+  
+  const todayIndicator = document.getElementById('today-indicator');
+  if (todayIndicator) {
+    if (isToday) {
+      todayIndicator.classList.remove('hidden');
+    } else {
+      todayIndicator.classList.add('hidden');
+    }
+  }
+
   const levelBadge = document.getElementById('dialogue-level-badge');
   levelBadge.textContent = data.levelName;
   levelBadge.style.backgroundColor = data.levelBadgeColor || '#22c55e';

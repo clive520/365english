@@ -2,7 +2,7 @@
 window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-elem-01",
-    "date": "2026-09-01",
+    "date": "09-01",
     "level": "elementary_basic",
     "levelName": "國小初階 (A1)",
     "levelBadgeColor": "#22c55e",
@@ -125,7 +125,7 @@ window.DAILY_DIALOGUES = [
   },
   {
     "id": "dialogue-elem-02",
-    "date": "2026-09-02",
+    "date": "09-02",
     "level": "elementary_basic",
     "levelName": "國小初階 (A1)",
     "levelBadgeColor": "#22c55e",
@@ -248,7 +248,7 @@ window.DAILY_DIALOGUES = [
   },
   {
     "id": "dialogue-elem-03",
-    "date": "2026-09-03",
+    "date": "09-03",
     "level": "elementary_adv",
     "levelName": "國小中高 (A1+)",
     "levelBadgeColor": "#0284c7",
@@ -371,7 +371,7 @@ window.DAILY_DIALOGUES = [
   },
   {
     "id": "dialogue-elem-04",
-    "date": "2026-09-04",
+    "date": "09-04",
     "level": "elementary_adv",
     "levelName": "國小中高 (A1+)",
     "levelBadgeColor": "#0284c7",
@@ -494,7 +494,7 @@ window.DAILY_DIALOGUES = [
   },
   {
     "id": "dialogue-jun-01",
-    "date": "2026-09-05",
+    "date": "09-05",
     "level": "junior",
     "levelName": "國中挑戰 (A2~B1)",
     "levelBadgeColor": "#d97706",
@@ -630,7 +630,7 @@ window.DAILY_DIALOGUES = [
   },
   {
     "id": "dialogue-jun-02",
-    "date": "2026-09-06",
+    "date": "09-06",
     "level": "junior",
     "levelName": "國中挑戰 (A2~B1)",
     "levelBadgeColor": "#d97706",
@@ -753,7 +753,7 @@ window.DAILY_DIALOGUES = [
   },
   {
     "id": "dialogue-sen-01",
-    "date": "2026-09-07",
+    "date": "09-07",
     "level": "senior",
     "levelName": "高中進階 (B1~B2)",
     "levelBadgeColor": "#e11d48",
@@ -876,7 +876,7 @@ window.DAILY_DIALOGUES = [
   },
   {
     "id": "dialogue-sen-02",
-    "date": "2026-09-08",
+    "date": "09-08",
     "level": "senior",
     "levelName": "高中進階 (B1~B2)",
     "levelBadgeColor": "#e11d48",

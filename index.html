@@ -69,7 +69,20 @@
       <!-- 對話頂部英雄看板 -->
       <section class="dialogue-hero">
         <div class="topic-meta">
-          <span id="dialogue-date-badge" class="badge-date">📅 2026-09-01</span>
+          <!-- 日期快速導覽群組 (前一天 / 今日 / 後一天) -->
+          <div class="date-nav-group">
+            <button id="prev-day-btn" class="nav-day-btn" title="切換至前一天的對話 (快捷鍵: [)">
+              ◀ 前一天
+            </button>
+            <button id="today-day-btn" class="nav-day-btn today-badge-btn" title="點擊回到今日對話">
+              <span id="dialogue-date-badge">📅 9月3日</span>
+              <span id="today-indicator" class="today-pill hidden">今日</span>
+            </button>
+            <button id="next-day-btn" class="nav-day-btn" title="切換至後一天的對話 (快捷鍵: ])">
+              後一天 ▶
+            </button>
+          </div>
+
           <span id="dialogue-level-badge" class="badge-tag">國小初階</span>
           <span id="dialogue-category-badge" class="badge-tag" style="background: #e0e7ff; color: #3730a3;">校園生活</span>
         </div>
@@ -213,6 +226,14 @@
         <li style="display: flex; justify-content: space-between; padding: 6px 10px; background: #f8fafc; border-radius: 6px;">
           <span><kbd style="background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-family: monospace;">1</kbd> ~ <kbd style="background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-family: monospace;">4</kbd></span>
           <strong>切換語速 (0.75x ~ 1.5x)</strong>
+        </li>
+        <li style="display: flex; justify-content: space-between; padding: 6px 10px; background: #f8fafc; border-radius: 6px;">
+          <span><kbd style="background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-family: monospace;">[</kbd> / <kbd style="background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-family: monospace;">]</kbd></span>
+          <strong>前一天 / 後一天</strong>
+        </li>
+        <li style="display: flex; justify-content: space-between; padding: 6px 10px; background: #f8fafc; border-radius: 6px;">
+          <span><kbd style="background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-family: monospace;">T</kbd></span>
+          <strong>回到今日對話</strong>
         </li>
         <li style="display: flex; justify-content: space-between; padding: 6px 10px; background: #f8fafc; border-radius: 6px;">
           <span><kbd style="background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-family: monospace;">H</kbd></span>
