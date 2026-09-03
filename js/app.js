@@ -292,10 +292,10 @@ function selectDialogue(dialogueId) {
   // 載入播放器
   window.dialoguePlayer.loadDialogue(target);
 
-  // 更新底部播放器正在朗讀標籤
+  // 更新底部播放器正在朗讀標籤 (只顯示日期與純中文篇名，不顯示學層與英文)
   const currentTitleTag = document.getElementById('player-dialogue-title');
   if (currentTitleTag) {
-    currentTitleTag.textContent = `${formatDisplayDate(target.date)} · ${target.levelName} · ${target.topic.en}`;
+    currentTitleTag.textContent = `${formatDisplayDate(target.date)} · ${target.topic.zh}`;
   }
 }
 
