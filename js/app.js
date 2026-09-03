@@ -262,17 +262,17 @@ function getFilteredDialogues() {
   return allDialogues.filter(d => d.level === currentLevelFilter);
 }
 
-// 渲染下拉選單
+// 渲染下拉選單 (簡化文字長度，徹底避免手機版寬度被撐爆)
 function renderDialogueSelector() {
   const dropdown = document.getElementById('dialogue-select-dropdown');
   if (!dropdown) return;
 
   const filtered = getFilteredDialogues();
-  dropdown.innerHTML = filtered.map(item => `
-    <option value="${item.id}" ${currentDialogue && currentDialogue.id === item.id ? 'selected' : ''}>
-      [${item.levelName}] ${formatDisplayDate(item.date)} - ${item.topic.zh} (${item.topic.en})
-    </option>
-  `).join('');
+  dropdown.innerHTML = filtered.map(item => {
+    const isSelected = currentDialogue && currentDialogue.id === item.id;
+    const dateText = formatDisplayDate(item.date);
+    return `<option value="${item.id}" ${isSelected ? 'selected' : ''}>${dateText} · ${item.topic.zh}</option>`;
+  }).join('');
 }
 
 // 選擇並載入特定對話

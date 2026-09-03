@@ -31,12 +31,17 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 body {
   font-family: 'Fredoka', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   background: var(--bg-gradient);
   color: var(--text-main);
   min-height: 100vh;
-  padding-bottom: 220px; /* 預留底部播放器充足安全高度，避免任何內容被遮擋 */
+  padding-bottom: 130px; /* 預留底部播放器安全高度 */
   line-height: 1.6;
 }
 
@@ -216,6 +221,49 @@ body {
   background: #e11d48;
   color: #fff;
   box-shadow: 0 4px 12px rgba(225, 29, 72, 0.35);
+}
+
+/* 篇章下拉選單專屬樣式 (嚴格限制最大寬度，杜絕手機視窗被撐爆) */
+.dialogue-select-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.dialogue-select-label {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #78350f;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.dialogue-select-dropdown {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1.5px solid #fed7aa;
+  background: #ffffff;
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: #1e293b;
+  outline: none;
+  cursor: pointer;
+  max-width: 380px;
+  min-width: 0;
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  transition: all 0.2s;
+}
+
+.dialogue-select-dropdown:hover,
+.dialogue-select-dropdown:focus {
+  border-color: #f59e0b;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
 }
 
 /* 主卡片主體 */
@@ -920,7 +968,17 @@ body.hide-en .sentence-en {
     gap: 12px;
   }
   .header-tools {
-    justify-content: space-around;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: space-between;
+  }
+  .tool-btn {
+    padding: 5px 8px;
+    font-size: 0.78rem;
+    gap: 4px;
+    flex: 1 1 calc(50% - 6px);
+    justify-content: center;
   }
   .date-navigation-header {
     flex-direction: column;
@@ -933,6 +991,53 @@ body.hide-en .sentence-en {
   .nav-day-btn {
     flex: 1;
     text-align: center;
+  }
+
+  /* 學習難度與篇章下拉選單手機自適應 (避免撐爆畫面) */
+  .level-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .level-bar-label {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 6px;
+  }
+
+  .level-pills {
+    width: 100%;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+    gap: 6px;
+  }
+
+  .level-pill {
+    padding: 6px 12px;
+    font-size: 0.78rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .dialogue-select-wrap {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    gap: 6px;
+  }
+
+  .dialogue-select-dropdown {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    flex: 1;
+    font-size: 0.82rem;
+    padding: 6px 8px;
   }
 
   /* 句子滾動安全間距 */
