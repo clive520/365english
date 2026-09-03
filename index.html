@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>每日對話練習 - Daily English Dialogue | 校園英語聽說練習平台</title>
+  <meta name="description" content="專為國小、國中至高中學生設計的每日生活化英語對話練習平台，具備變速朗讀、單句跟讀與錄音自我對照功能。">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌟</text></svg>">
+</head>
+<body>
+
+  <!-- 頂部品牌與工具導覽列 -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="#" class="brand-logo">
+        <div class="logo-badge">☀️</div>
+        <div class="brand-title">
+          <h1>每日對話練習</h1>
+          <p>Daily English Dialogue · 每天一段，自然開口說英語</p>
+        </div>
+      </a>
+
+      <!-- 快速學習輔助工具 -->
+      <div class="header-tools">
+        <button id="toggle-zh-btn" class="tool-btn" title="切換中英對照或純英文聽力模式 (快捷鍵: H)">
+          👁️ <span>隱藏中文</span>
+        </button>
+        <button id="toggle-font-btn" class="tool-btn" title="切換適合電子白板與教室投影的大字體模式">
+          🔍 <span>大字體模式</span>
+        </button>
+        <button id="random-btn" class="tool-btn" title="隨機抽一篇生活對話">
+          🎲 <span>隨機挑一篇</span>
+        </button>
+        <button id="shortcuts-help-btn" class="tool-btn" title="查看教室/自學鍵盤快捷鍵" onclick="document.getElementById('shortcuts-modal').classList.toggle('hidden')">
+          ⌨️ <span>快捷鍵</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主內容區 -->
+  <main class="main-wrapper">
+
+    <!-- 程度切換與文章快速選單 -->
+    <div class="level-bar">
+      <div class="level-bar-label">
+        <span>🎯 學習難度：</span>
+        <div class="level-pills">
+          <button class="level-pill active" data-level="all">全部程度</button>
+          <button class="level-pill" data-level="elementary_basic">🌱 國小初階 (A1)</button>
+          <button class="level-pill" data-level="elementary_adv">🌿 國小中高 (A1+)</button>
+          <button class="level-pill" data-level="junior">🌳 國中挑戰 (A2~B1)</button>
+          <button class="level-pill" data-level="senior">🚀 高中進階 (B1~B2)</button>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <label for="dialogue-select-dropdown" style="font-size: 0.88rem; font-weight: 700; color: #78350f;">選取篇章：</label>
+        <select id="dialogue-select-dropdown" style="padding: 6px 12px; border-radius: 8px; border: 1.5px solid #fed7aa; background: #fff; font-weight: 600; color: #1e293b; outline: none; cursor: pointer;">
+          <!-- JS 動態生成選項 -->
+        </select>
+      </div>
+    </div>
+
+    <!-- 對話主卡片 -->
+    <article class="dialogue-main-card">
+
+      <!-- 對話頂部英雄看板 -->
+      <section class="dialogue-hero">
+        <div class="topic-meta">
+          <span id="dialogue-date-badge" class="badge-date">📅 2026-09-01</span>
+          <span id="dialogue-level-badge" class="badge-tag">國小初階</span>
+          <span id="dialogue-category-badge" class="badge-tag" style="background: #e0e7ff; color: #3730a3;">校園生活</span>
+        </div>
+        <h2 id="topic-title-en" class="topic-title-en">What's in Your Backpack?</h2>
+        <h3 id="topic-title-zh" class="topic-title-zh">你的書包裡有什麼？</h3>
+        <div class="situation-box">
+          <span style="font-size: 1.2rem;">💡</span>
+          <span id="situation-text">開學第一天，Leo 和 Mia 在教室整理書包，互相好奇彼此帶了什麼新文具。</span>
+        </div>
+      </section>
+
+      <!-- 角色對話氣泡區 -->
+      <section class="dialogue-container" id="dialogue-bubbles-container">
+        <!-- JS 動態載入對話氣泡 -->
+      </section>
+
+      <!-- 單字卡片區 (Vocabulary Section) -->
+      <section class="extra-section" id="vocab-section">
+        <h4 class="section-title">
+          <span>📚 本篇焦點生詞 (Key Vocabulary)</span>
+          <span style="font-size: 0.8rem; font-weight: normal; color: #78350f;">（點擊喇叭可聽標準示範讀音）</span>
+        </h4>
+        <div class="vocab-grid" id="vocab-grid-container">
+          <!-- JS 動態生成單字卡 -->
+        </div>
+
+        <!-- 今日金句與文化小撇步 -->
+        <div class="tips-grid">
+          <div class="tip-card phrase-card">
+            <div style="font-weight: 700; color: #15803d; margin-bottom: 4px; font-size: 0.95rem;">
+              ✨ 今日實用句 (Daily Expression)
+            </div>
+            <div id="phrase-en" style="font-size: 1.05rem; font-weight: 700; color: #1e293b;">An apple a day keeps the doctor away.</div>
+            <div id="phrase-zh" style="font-size: 0.9rem; color: #475569; margin-top: 2px;">一天一蘋果，醫生遠離我。</div>
+          </div>
+
+          <div class="tip-card culture-card">
+            <div style="font-weight: 700; color: #0369a1; margin-bottom: 4px; font-size: 0.95rem;">
+              🌍 文化小充電 (Culture Tip)
+            </div>
+            <div id="culture-text" style="font-size: 0.9rem; color: #334155; line-height: 1.5;">
+              在歐美學校，小朋友下課通常有短暫的 Snack Time（點心時間），大家喜歡帶切片蘋果、小餅乾或起司條到學校吃喔！
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </article>
+
+  </main>
+
+  <!-- 底部懸浮智慧雙語音訊播放器 -->
+  <aside class="fixed-player-bar" aria-label="英語對話播放器">
+    <div class="player-main-row">
+      <!-- 正在播放資訊 -->
+      <div class="player-left-info">
+        <span class="current-playing-badge" id="player-dialogue-title">國小初階 · What's in Your Backpack?</span>
+      </div>
+
+      <!-- 控制按鈕群組 -->
+      <div class="player-controls">
+        <button id="rewind-btn" class="control-btn" title="倒退 5 秒" aria-label="倒退 5 秒">
+          ⏪
+        </button>
+        <button id="main-play-btn" class="control-btn main-play" title="播放 / 暫停" aria-label="播放或暫停">
+          <span id="play-icon">▶</span>
+          <span id="pause-icon" class="hidden">⏸</span>
+        </button>
+        <button id="forward-btn" class="control-btn" title="快轉 5 秒" aria-label="快轉 5 秒">
+          ⏩
+        </button>
+      </div>
+
+      <!-- 語速切換核心控制 (Speed Switcher) -->
+      <div class="speed-selector-group" title="選擇朗讀速度">
+        <span class="speed-label">語速：</span>
+        <button class="speed-btn" data-speed="0.75">0.75x 慢速</button>
+        <button class="speed-btn active" data-speed="1.0">1.0x 正常</button>
+        <button class="speed-btn" data-speed="1.25">1.25x 稍快</button>
+        <button class="speed-btn" data-speed="1.5">1.5x 挑戰</button>
+      </div>
+    </div>
+
+    <!-- 播放進度條 -->
+    <div class="player-progress-row">
+      <span class="time-text" id="current-time">0:00</span>
+      <input type="range" id="audio-progress" class="progress-slider" min="0" max="100" value="0" step="0.1" aria-label="音訊進度條">
+      <span class="time-text right" id="duration-time">0:00</span>
+    </div>
+  </aside>
+
+  <!-- 學生自主錄音跟讀對比彈窗 (Modal) -->
+  <div id="record-modal" class="modal-overlay hidden">
+    <div class="modal-content">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+        <h3 style="color: #b45309; font-size: 1.3rem;">🎙️ 說說看！跟讀發音挑戰</h3>
+        <button id="close-record-modal" style="background: none; border: none; font-size: 1.4rem; cursor: pointer; color: #94a3b8;">✕</button>
+      </div>
+
+      <div style="background: #f8fafc; padding: 16px; border-radius: 12px; margin-bottom: 16px; border: 1.5px solid #e2e8f0; text-align: left;">
+        <div id="modal-sentence-en" style="font-size: 1.25rem; font-weight: 700; color: #1e293b; margin-bottom: 6px;"></div>
+        <div id="modal-sentence-zh" style="font-size: 0.95rem; color: #64748b;"></div>
+      </div>
+
+      <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 16px;">
+        <button onclick="window.playModalOriginalSentence()" style="padding: 8px 16px; background: #0284c7; color: #fff; border: none; border-radius: 999px; font-weight: 700; cursor: pointer;">
+          🔊 聽聽標準母語發音
+        </button>
+        <button id="record-action-btn" style="padding: 8px 16px; background: #10b981; color: #fff; border: none; border-radius: 999px; font-weight: 700; cursor: pointer;">
+          🎙️ 開始錄音
+        </button>
+      </div>
+
+      <p id="record-status-text" style="font-size: 0.9rem; color: #78350f; font-weight: 600; min-height: 24px;">
+        準備好了嗎？點擊「開始錄音」並大聲跟讀！
+      </p>
+
+      <button id="play-user-recording-btn" class="hidden" style="margin-top: 12px; padding: 8px 18px; background: #f59e0b; color: #fff; border: none; border-radius: 999px; font-weight: 700; cursor: pointer;">
+        🎧 播放我剛錄的聲音
+      </button>
+    </div>
+  </div>
+
+  <!-- 課堂與自主學習快捷鍵說明彈窗 (Shortcuts Modal) -->
+  <div id="shortcuts-modal" class="modal-overlay hidden" onclick="if(event.target === this) this.classList.add('hidden')">
+    <div class="modal-content" style="text-align: left; max-width: 440px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+        <h3 style="color: #b45309; font-size: 1.25rem;">⌨️ 鍵盤操作快捷鍵指南</h3>
+        <button onclick="document.getElementById('shortcuts-modal').classList.add('hidden')" style="background: none; border: none; font-size: 1.4rem; cursor: pointer; color: #94a3b8;">✕</button>
+      </div>
+      <p style="font-size: 0.88rem; color: #64748b; margin-bottom: 12px;">專為教室電子白板教學與桌機自學設計，動動手指即可流暢操控：</p>
+      <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 0.92rem; color: #1e293b;">
+        <li style="display: flex; justify-content: space-between; padding: 6px 10px; background: #f8fafc; border-radius: 6px;">
+          <span><kbd style="background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-family: monospace;">空白鍵 Space</kbd></span>
+          <strong>播放 / 暫停</strong>
+        </li>
+        <li style="display: flex; justify-content: space-between; padding: 6px 10px; background: #f8fafc; border-radius: 6px;">
+          <span><kbd style="background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-family: monospace;">←</kbd> / <kbd style="background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-family: monospace;">→</kbd></span>
+          <strong>倒退 5 秒 / 快進 5 秒</strong>
+        </li>
+        <li style="display: flex; justify-content: space-between; padding: 6px 10px; background: #f8fafc; border-radius: 6px;">
+          <span><kbd style="background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-family: monospace;">1</kbd> ~ <kbd style="background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-family: monospace;">4</kbd></span>
+          <strong>切換語速 (0.75x ~ 1.5x)</strong>
+        </li>
+        <li style="display: flex; justify-content: space-between; padding: 6px 10px; background: #f8fafc; border-radius: 6px;">
+          <span><kbd style="background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-family: monospace;">H</kbd></span>
+          <strong>切換隱藏中文 (英聽挑戰)</strong>
+        </li>
+      </ul>
+      <div style="text-align: center; margin-top: 16px;">
+        <button onclick="document.getElementById('shortcuts-modal').classList.add('hidden')" style="padding: 6px 20px; background: #f59e0b; color: #fff; border: none; border-radius: 999px; font-weight: 700; cursor: pointer;">
+          我知道了
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 載入核心腳本 -->
+  <script src="js/data.js"></script>
+  <script src="js/player.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

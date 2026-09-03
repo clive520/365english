@@ -1,0 +1,14 @@
+# Python 快取與虛擬環境
+__pycache__/
+*.py[cod]
+*$py.class
+*.tmp
+.env
+venv/
+.venv/
+
+# 系統與編輯器暫存
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
