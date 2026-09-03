@@ -65,8 +65,8 @@
    - 進入儲存庫頁面點擊 **Settings** -> **Pages**。
    - 在 **Build and deployment** 下方的 **Source** 選擇 `Deploy from a branch`。
    - **Branch** 選擇 `main` 分支與 `/ (root)` 目錄，點擊 **Save**。
-   - 稍候約 1~2 分鐘，即可獲得正式專屬網址：
-     `https://<你的帳號>.github.io/daily-english/`
+   👉 正式專屬網址：
+   **https://clive520.github.io/365english/**
 
 ---
 
@@ -77,7 +77,7 @@
 
 ```html
 <iframe 
-  src="https://<你的帳號>.github.io/daily-english/" 
+  src="https://clive520.github.io/365english/" 
   style="width: 100%; height: 850px; border: none; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);"
   title="每日對話練習 - 英語學習平台"
   allow="microphone">
@@ -87,7 +87,7 @@
 
 ### 方式二：於學校首頁設立「每日對話練習」超連結橫幅
 ```html
-<a href="https://<你的帳號>.github.io/daily-english/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; background: #f59e0b; color: #fff; padding: 10px 20px; border-radius: 999px; text-decoration: none; font-weight: bold; font-size: 1.1rem; box-shadow: 0 4px 12px rgba(245,158,11,0.3);">
+<a href="https://clive520.github.io/365english/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; background: #f59e0b; color: #fff; padding: 10px 20px; border-radius: 999px; text-decoration: none; font-weight: bold; font-size: 1.1rem; box-shadow: 0 4px 12px rgba(245,158,11,0.3);">
   ☀️ 進入「每日對話練習」平台
 </a>
 ```
