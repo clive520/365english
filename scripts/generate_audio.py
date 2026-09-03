@@ -57,6 +57,15 @@ async def process_dialogue(item: dict) -> dict:
     """處理單篇對話：合成每句發音、串接為整段 MP3、更新時間標記"""
     dialogue_id = item['id']
     level = item.get('level', 'elementary_basic')
+    out_filename = f"{dialogue_id}.mp3"
+    out_path = os.path.join(AUDIO_DIR, out_filename)
+
+    # 檢查是否已經存在且已標註時間軸
+    has_timestamps = all('startTime' in s for s in item.get('dialogue', []))
+    if os.path.exists(out_path) and has_timestamps:
+        print(f"⏩ 跳過已存在之音檔：[{item.get('levelName')}] {item['topic']['zh']} ({out_filename})")
+        return item
+
     print(f"\n🎧 正在處理對話：[{item.get('levelName')}] {item['topic']['zh']} ({item['topic']['en']})...")
 
     # 針對不同年級等級，設定最適合學生的教學語速
