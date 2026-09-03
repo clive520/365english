@@ -646,13 +646,94 @@ body.hide-en .sentence-en {
   background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(16px);
   border-radius: var(--radius-lg);
-  border: 3px solid #f59e0b;
+  border: 2.5px solid #f59e0b;
   box-shadow: 0 10px 36px rgba(0, 0, 0, 0.16);
-  padding: 12px 20px;
+  padding: 10px 20px;
   z-index: 100;
   display: flex;
   flex-direction: column;
   gap: 8px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 播放器頂部資訊列 (標題與收合按鈕) */
+.player-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 12px;
+}
+
+.player-left-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  flex: 1;
+  overflow: hidden;
+}
+
+.current-playing-badge {
+  background: var(--primary-light);
+  color: #b45309;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.player-collapse-btn {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #64748b;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.player-collapse-btn:hover {
+  background: #fef3c7;
+  color: #b45309;
+  border-color: #f59e0b;
+}
+
+/* 收合最小化狀態 (Minimized Mode) */
+.fixed-player-bar.is-collapsed {
+  padding: 6px 14px;
+  gap: 4px;
+  max-width: 500px;
+  border-radius: 999px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18);
+  border-color: #f59e0b;
+}
+
+.fixed-player-bar.is-collapsed .player-main-row {
+  display: none !important;
+}
+
+.fixed-player-bar.is-collapsed .player-top-row {
+  margin-bottom: 2px;
+}
+
+.fixed-player-bar.is-collapsed .current-playing-badge {
+  font-size: 0.72rem;
+  padding: 2px 8px;
+}
+
+.fixed-player-bar.is-collapsed .progress-slider {
+  height: 4px;
 }
 
 .player-main-row {
@@ -660,24 +741,7 @@ body.hide-en .sentence-en {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  flex-wrap: wrap;
-}
-
-.player-left-info {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  min-width: 180px;
-}
-
-.current-playing-badge {
-  background: var(--primary-light);
-  color: #b45309;
-  padding: 4px 10px;
-  border-radius: 999px;
-  font-size: 0.78rem;
-  font-weight: 700;
-  white-space: nowrap;
+  width: 100%;
 }
 
 /* 播放核心按鈕群 */
@@ -690,10 +754,10 @@ body.hide-en .sentence-en {
 .control-btn {
   background: #f1f5f9;
   border: none;
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -710,14 +774,14 @@ body.hide-en .sentence-en {
 .control-btn.main-play {
   background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
   color: #fff;
-  width: 52px;
-  height: 52px;
-  font-size: 1.4rem;
+  width: 48px;
+  height: 48px;
+  font-size: 1.3rem;
   box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4);
 }
 
 .control-btn.main-play:hover {
-  transform: scale(1.12);
+  transform: scale(1.1);
   box-shadow: 0 6px 18px rgba(245, 158, 11, 0.5);
 }
 
@@ -734,14 +798,14 @@ body.hide-en .sentence-en {
 .speed-selector-group {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
   background: #f1f5f9;
-  padding: 4px 8px;
+  padding: 3px 6px;
   border-radius: 9999px;
 }
 
 .speed-label {
-  font-size: 0.76rem;
+  font-size: 0.74rem;
   font-weight: 700;
   color: #64748b;
   margin-right: 2px;
@@ -752,11 +816,12 @@ body.hide-en .sentence-en {
   background: transparent;
   padding: 4px 8px;
   border-radius: 9999px;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 700;
   color: #475569;
   cursor: pointer;
   transition: all 0.2s ease;
+  white-space: nowrap;
 }
 
 .speed-btn:hover {
@@ -778,10 +843,10 @@ body.hide-en .sentence-en {
 }
 
 .time-text {
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 600;
   color: #64748b;
-  min-width: 40px;
+  min-width: 36px;
 }
 
 .time-text.right {
@@ -791,7 +856,7 @@ body.hide-en .sentence-en {
 .progress-slider {
   flex: 1;
   -webkit-appearance: none;
-  height: 7px;
+  height: 6px;
   border-radius: 999px;
   background: #e2e8f0;
   outline: none;
@@ -802,8 +867,8 @@ body.hide-en .sentence-en {
 .progress-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 16px;
-  height: 16px;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
   background: #f59e0b;
   border: 2px solid #fff;
@@ -842,31 +907,163 @@ body.hide-en .sentence-en {
   display: none !important;
 }
 
-/* 響應式微調 */
+/* 手機與平板響應式微調 (Responsive Mobile Optimizations) */
 @media (max-width: 768px) {
+  /* 頁面底端留白大幅縮小，杜絕大面積空白 */
+  body {
+    padding-bottom: 110px;
+  }
+
   .header-container {
     flex-direction: column;
     align-items: stretch;
+    gap: 12px;
   }
   .header-tools {
     justify-content: space-around;
   }
-  .player-main-row {
+  .date-navigation-header {
     flex-direction: column;
-    gap: 10px;
+    align-items: stretch;
   }
-  .player-left-info {
+  .day-nav-group {
     width: 100%;
-    justify-content: center;
+    justify-content: space-between;
   }
+  .nav-day-btn {
+    flex: 1;
+    text-align: center;
+  }
+
+  /* 句子滾動安全間距 */
   .sentence-bubble {
     gap: 10px;
     padding: 12px;
+    scroll-margin-top: 80px;
+    scroll-margin-bottom: 120px;
   }
   .sentence-en {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
   }
   .topic-title-en {
-    font-size: 1.4rem;
+    font-size: 1.45rem;
+  }
+
+  /* 手機專屬極致精巧播放器：高度縮小 60% 以上！ */
+  .fixed-player-bar {
+    bottom: 6px;
+    width: calc(100% - 14px);
+    max-width: 540px;
+    padding: 6px 10px;
+    border-radius: 16px;
+    border-width: 1.5px;
+    gap: 4px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.16);
+  }
+
+  .player-top-row {
+    gap: 6px;
+  }
+
+  .current-playing-badge {
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    max-width: 220px;
+  }
+
+  .player-collapse-btn {
+    padding: 2px 7px;
+    font-size: 0.72rem;
+  }
+
+  /* 橫向緊湊排列，絕不垂直堆疊！ */
+  .player-main-row {
+    flex-direction: row !important;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6px;
+    margin: 2px 0;
+  }
+
+  .player-controls {
+    gap: 6px;
+  }
+
+  .control-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 0.88rem;
+  }
+
+  .control-btn.main-play {
+    width: 38px;
+    height: 38px;
+    font-size: 1.1rem;
+  }
+
+  /* 手機端隱藏「慢速/正常」中文後贅字，只留「0.75x」「1.0x」純數字 */
+  .speed-selector-group {
+    padding: 2px 4px;
+    gap: 2px;
+  }
+
+  .speed-label,
+  .speed-desc {
+    display: none !important;
+  }
+
+  .speed-btn {
+    padding: 2px 5px;
+    font-size: 0.72rem;
+  }
+
+  /* 精巧進度條 */
+  .player-progress-row {
+    gap: 6px;
+  }
+
+  .time-text {
+    font-size: 0.7rem;
+    min-width: 28px;
+  }
+
+  .progress-slider {
+    height: 4.5px;
+  }
+
+  .progress-slider::-webkit-slider-thumb {
+    width: 13px;
+    height: 13px;
+  }
+
+  /* 收合狀態下極致輕盈（高度僅約 36px） */
+  .fixed-player-bar.is-collapsed {
+    padding: 4px 10px;
+    border-radius: 999px;
+    bottom: 6px;
+    gap: 3px;
   }
 }
+
+/* 超小型手機 (寬度 <= 390px，如 iPhone SE, mini) */
+@media (max-width: 390px) {
+  .current-playing-badge {
+    max-width: 170px;
+    font-size: 0.68rem;
+  }
+  .control-btn {
+    width: 27px;
+    height: 27px;
+    font-size: 0.8rem;
+  }
+  .control-btn.main-play {
+    width: 34px;
+    height: 34px;
+    font-size: 1rem;
+  }
+  .speed-btn {
+    padding: 2px 4px;
+    font-size: 0.68rem;
+  }
+}
+

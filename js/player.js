@@ -294,10 +294,12 @@ class DialoguePlayer {
     if (activeEl) {
       activeEl.classList.add('active-reading');
 
-      // 精確計算視窗安全區域（頂部避開導覽列 90px，底部避開浮動播放器 160px）
+      // 動態精確計算視窗安全區域（頂部避開導覽列，底部根據播放器實際高度自動避開）
       const rect = activeEl.getBoundingClientRect();
-      const topSafeBoundary = 90;
-      const bottomSafeBoundary = window.innerHeight - 160;
+      const playerBar = document.getElementById('fixed-player-bar');
+      const bottomOffset = playerBar ? playerBar.offsetHeight + 18 : 100;
+      const topSafeBoundary = 75;
+      const bottomSafeBoundary = window.innerHeight - bottomOffset;
 
       // 若句子被底部播放器遮擋或超出頂部，自動平滑滾動至視窗正中央
       if (rect.top < topSafeBoundary || rect.bottom > bottomSafeBoundary) {

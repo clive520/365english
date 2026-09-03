@@ -135,13 +135,19 @@
   </main>
 
   <!-- 底部懸浮智慧雙語音訊播放器 -->
-  <aside class="fixed-player-bar" aria-label="英語對話播放器">
-    <div class="player-main-row">
-      <!-- 正在播放資訊 -->
+  <aside class="fixed-player-bar" id="fixed-player-bar" aria-label="英語對話播放器">
+    <!-- 播放器頂部標題與收合按鈕列 (手機上特別實用) -->
+    <div class="player-top-row">
       <div class="player-left-info">
         <span class="current-playing-badge" id="player-dialogue-title">國小初階 · What's in Your Backpack?</span>
       </div>
+      <button id="toggle-player-collapse-btn" class="player-collapse-btn" title="收合/展開播放器" aria-label="收合播放器">
+        <span class="collapse-icon">收合 ▾</span>
+      </button>
+    </div>
 
+    <!-- 播放器主要控制核心列 -->
+    <div class="player-main-row" id="player-main-controls">
       <!-- 控制按鈕群組 -->
       <div class="player-controls">
         <button id="rewind-btn" class="control-btn" title="倒退 5 秒" aria-label="倒退 5 秒">
@@ -158,11 +164,11 @@
 
       <!-- 語速切換核心控制 (Speed Switcher) -->
       <div class="speed-selector-group" title="選擇朗讀速度">
-        <span class="speed-label">語速：</span>
-        <button class="speed-btn" data-speed="0.75">0.75x 慢速</button>
-        <button class="speed-btn active" data-speed="1.0">1.0x 正常</button>
-        <button class="speed-btn" data-speed="1.25">1.25x 稍快</button>
-        <button class="speed-btn" data-speed="1.5">1.5x 挑戰</button>
+        <span class="speed-label">語速:</span>
+        <button class="speed-btn" data-speed="0.75">0.75x<span class="speed-desc"> 慢速</span></button>
+        <button class="speed-btn active" data-speed="1.0">1.0x<span class="speed-desc"> 正常</span></button>
+        <button class="speed-btn" data-speed="1.25">1.25x<span class="speed-desc"> 稍快</span></button>
+        <button class="speed-btn" data-speed="1.5">1.5x<span class="speed-desc"> 挑戰</span></button>
       </div>
     </div>
 

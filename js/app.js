@@ -129,6 +129,19 @@ function bindUIEvents() {
     });
   }
 
+  // 播放器收合 / 展開按鈕 (手機極致輕盈模式)
+  const collapseBtn = document.getElementById('toggle-player-collapse-btn');
+  const playerBar = document.getElementById('fixed-player-bar');
+  if (collapseBtn && playerBar) {
+    collapseBtn.addEventListener('click', () => {
+      const isCollapsed = playerBar.classList.toggle('is-collapsed');
+      const iconSpan = collapseBtn.querySelector('.collapse-icon');
+      if (iconSpan) {
+        iconSpan.textContent = isCollapsed ? '展開 ▴' : '收合 ▾';
+      }
+    });
+  }
+
   const rewindBtn = document.getElementById('rewind-btn');
   if (rewindBtn) {
     rewindBtn.addEventListener('click', () => window.dialoguePlayer.seek(-5));
