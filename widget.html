@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>每日生活美語 · 側邊欄精簡微件</title>
+  <meta name="description" content="365 每日生活美語校園網頁側邊欄專用嵌入微件">
+  <link rel="stylesheet" href="css/widget.css?v=20260904_full">
+</head>
+<body>
+
+  <!-- 微件主卡片包裝 -->
+  <div class="widget-card">
+
+    <!-- 滾動內容本體 -->
+    <div class="widget-content-scroll">
+      
+      <!-- 頂部看板區 -->
+      <div class="widget-hero">
+        
+        <!-- 前一天 / 今日 / 後一天 -->
+        <div class="widget-nav-bar">
+          <div class="date-nav-group">
+            <button id="prev-day-btn" class="nav-day-btn" title="切換至前一天">
+              ◀ 前一天
+            </button>
+            <button id="today-day-btn" class="nav-day-btn today-badge-btn" title="點擊回到今日">
+              <span id="dialogue-date-badge">📅 9月4日</span>
+              <span id="today-indicator" class="today-pill hidden">今日</span>
+            </button>
+            <button id="next-day-btn" class="nav-day-btn" title="切換至後一天">
+              後一天 ▶
+            </button>
+          </div>
+        </div>
+
+        <!-- 學層標籤與主題分類 -->
+        <div class="topic-meta">
+          <span id="dialogue-level-badge" class="badge-tag">國小中高 (A1+)</span>
+          <span id="dialogue-category-badge" class="badge-tag" style="background: #e0e7ff; color: #3730a3;">🏷️ 校園午餐</span>
+        </div>
+
+        <!-- 中英文篇名 -->
+        <h2 id="topic-title-en" class="topic-title-en">Mystery Pudding at the Cafeteria</h2>
+        <h3 id="topic-title-zh" class="topic-title-zh">學校餐廳的神秘布丁！</h3>
+
+        <!-- 情境引導 -->
+        <div class="situation-box">
+          <span style="font-size: 1.1rem; line-height: 1;">💡</span>
+          <span id="situation-text">情境引導：午餐時間，Amy 和 Lucas 發現今天的營養午餐有一盒特別的驚喜甜點。</span>
+        </div>
+
+      </div>
+
+      <!-- 對話氣泡清單 (點擊單句即可發音) -->
+      <div class="dialogue-container" id="dialogue-bubbles-container">
+        <!-- JS 動態生成 -->
+      </div>
+
+      <!-- 底部完整版指引 -->
+      <div class="widget-footer-link">
+        <a href="index.html" target="_blank" rel="noopener">
+          🔍 開啟完整版學習平台 (含單字卡、文化充能與錄音) ↗
+        </a>
+      </div>
+
+    </div>
+
+    <!-- 底部懸浮精簡播放器 -->
+    <div class="widget-player-bar" id="fixed-player-bar">
+      
+      <!-- 播放器篇名與收合按鈕 -->
+      <div class="player-top-row">
+        <span class="current-playing-badge" id="player-dialogue-title">9月4日 · 學校餐廳的神秘布丁！</span>
+        <button id="toggle-player-collapse-btn" class="player-collapse-btn" title="收合/展開播放器">
+          <span class="collapse-icon">收合 ▾</span>
+        </button>
+      </div>
+
+      <!-- 核心按鈕列 (播放/暫停、倒退/快轉、語速調整) -->
+      <div class="player-main-row" id="player-main-controls">
+        <div class="player-controls">
+          <button id="rewind-btn" class="control-btn" title="倒退 5 秒" aria-label="倒退 5 秒">
+            ⏪
+          </button>
+          <button id="main-play-btn" class="control-btn main-play" title="播放 / 暫停" aria-label="播放或暫停">
+            <span id="play-icon">▶</span>
+            <span id="pause-icon" class="hidden">⏸</span>
+          </button>
+          <button id="forward-btn" class="control-btn" title="快轉 5 秒" aria-label="快轉 5 秒">
+            ⏩
+          </button>
+        </div>
+
+        <div class="speed-control-group">
+          <button class="speed-btn" data-speed="0.75">0.75x</button>
+          <button class="speed-btn active" data-speed="1.0">1.0x</button>
+          <button class="speed-btn" data-speed="1.25">1.25x</button>
+          <button class="speed-btn" data-speed="1.5">1.5x</button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- 載入資料庫、播放器核心與微件腳本 -->
+  <script src="js/data.js?v=20260904_full"></script>
+  <script src="js/player.js?v=20260904_full"></script>
+  <script src="js/widget.js?v=20260904_full"></script>
+</body>
+</html>
