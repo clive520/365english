@@ -36,22 +36,33 @@ VOICE_MAP = {
 }
 
 async def generate_sentence_audio(text: str, voice: str, rate: str = "-4%") -> tuple[bytes, float]:
-    """生成單一語句音訊與取得精確秒數長度"""
-    communicate = edge_tts.Communicate(text, voice, rate=rate)
-    
-    with tempfile.NamedTemporaryFile(suffix=".mp3", delete=False) as tmp:
-        tmp_path = tmp.name
+    """生成單一語句音訊與取得精確秒數長度（含自動重試機制）"""
+    max_retries = 5
+    for attempt in range(1, max_retries + 1):
+        with tempfile.NamedTemporaryFile(suffix=".mp3", delete=False) as tmp:
+            tmp_path = tmp.name
 
-    try:
-        await communicate.save(tmp_path)
-        audio = MP3(tmp_path)
-        duration = audio.info.length
-        with open(tmp_path, "rb") as f:
-            audio_bytes = f.read()
-        return audio_bytes, duration
-    finally:
-        if os.path.exists(tmp_path):
-            os.remove(tmp_path)
+        try:
+            communicate = edge_tts.Communicate(text, voice, rate=rate)
+            await communicate.save(tmp_path)
+            audio = MP3(tmp_path)
+            duration = audio.info.length
+            with open(tmp_path, "rb") as f:
+                audio_bytes = f.read()
+            return audio_bytes, duration
+        except Exception as e:
+            if attempt == max_retries:
+                print(f"❌ 生成語句失敗（已重試 {max_retries} 次）：{e}")
+                raise
+            wait_sec = attempt * 1.5
+            print(f"⚠️ 網路波動或連線中斷（{e}），等待 {wait_sec:.1f} 秒後進行第 {attempt + 1} 次重試...")
+            await asyncio.sleep(wait_sec)
+        finally:
+            if os.path.exists(tmp_path):
+                try:
+                    os.remove(tmp_path)
+                except Exception:
+                    pass
 
 async def process_dialogue(item: dict) -> dict:
     """處理單篇對話：合成每句發音、串接為整段 MP3、更新時間標記"""
