@@ -259,7 +259,15 @@ function getFilteredDialogues() {
   if (currentLevelFilter === 'all') {
     return allDialogues;
   }
-  return allDialogues.filter(d => d.level === currentLevelFilter);
+  return allDialogues.filter(d => {
+    if (currentLevelFilter === 'junior') {
+      return d.level === 'junior' || d.level === 'junior_high';
+    }
+    if (currentLevelFilter === 'senior') {
+      return d.level === 'senior' || d.level === 'senior_high';
+    }
+    return d.level === currentLevelFilter;
+  });
 }
 
 // 渲染下拉選單 (簡化文字長度，徹底避免手機版寬度被撐爆)

@@ -1,5 +1,5 @@
-// 預載每日對話資料庫（支援本地離線與 GitHub Pages 靜態環境）
-window.DAILY_DIALOGUES = [
+// 365 每日生活美語對話資料庫 (全年度)
+const DIALOGUES_DATA = [
   {
     "id": "dialogue-0101",
     "date": "01-01",
@@ -11524,7 +11524,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0403",
     "date": "04-03",
-    "level": "junior_high",
+    "level": "junior",
     "levelName": "國中挑戰 (A2~B1)",
     "levelBadgeColor": "#d97706",
     "category": "節慶家庭",
@@ -11794,7 +11794,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0405",
     "date": "04-05",
-    "level": "junior_high",
+    "level": "junior",
     "levelName": "國中挑戰 (A2~B1)",
     "levelBadgeColor": "#d97706",
     "category": "民俗節氣",
@@ -12063,7 +12063,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0407",
     "date": "04-07",
-    "level": "senior_high",
+    "level": "senior",
     "levelName": "高中進階 (B1~B2)",
     "levelBadgeColor": "#7c3aed",
     "category": "健康公民",
@@ -12586,7 +12586,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0411",
     "date": "04-11",
-    "level": "junior_high",
+    "level": "junior",
     "levelName": "國中挑戰 (A2~B1)",
     "levelBadgeColor": "#d97706",
     "category": "學習策略",
@@ -12856,7 +12856,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0413",
     "date": "04-13",
-    "level": "senior_high",
+    "level": "senior",
     "levelName": "高中進階 (B1~B2)",
     "levelBadgeColor": "#7c3aed",
     "category": "心理調節",
@@ -13253,7 +13253,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0416",
     "date": "04-16",
-    "level": "junior_high",
+    "level": "junior",
     "levelName": "國中挑戰 (A2~B1)",
     "levelBadgeColor": "#d97706",
     "category": "校園喜悅",
@@ -13395,7 +13395,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0417",
     "date": "04-17",
-    "level": "senior_high",
+    "level": "senior",
     "levelName": "高中進階 (B1~B2)",
     "levelBadgeColor": "#7c3aed",
     "category": "自我成長",
@@ -13665,7 +13665,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0419",
     "date": "04-19",
-    "level": "junior_high",
+    "level": "junior",
     "levelName": "國中挑戰 (A2~B1)",
     "levelBadgeColor": "#d97706",
     "category": "節氣文化",
@@ -14062,7 +14062,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0422",
     "date": "04-22",
-    "level": "senior_high",
+    "level": "senior",
     "levelName": "高中進階 (B1~B2)",
     "levelBadgeColor": "#7c3aed",
     "category": "地球環境",
@@ -14203,7 +14203,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0423",
     "date": "04-23",
-    "level": "senior_high",
+    "level": "senior",
     "levelName": "高中進階 (B1~B2)",
     "levelBadgeColor": "#7c3aed",
     "category": "文學與閱讀",
@@ -14598,7 +14598,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0426",
     "date": "04-26",
-    "level": "junior_high",
+    "level": "junior",
     "levelName": "國中挑戰 (A2~B1)",
     "levelBadgeColor": "#d97706",
     "category": "感恩心意",
@@ -14740,7 +14740,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0427",
     "date": "04-27",
-    "level": "senior_high",
+    "level": "senior",
     "levelName": "高中進階 (B1~B2)",
     "levelBadgeColor": "#7c3aed",
     "category": "藝術與美感",
@@ -15010,7 +15010,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0429",
     "date": "04-29",
-    "level": "junior_high",
+    "level": "junior",
     "levelName": "國中挑戰 (A2~B1)",
     "levelBadgeColor": "#d97706",
     "category": "春夜星空",
@@ -15535,7 +15535,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0503",
     "date": "05-03",
-    "level": "junior_high",
+    "level": "junior",
     "levelName": "國中挑戰 (A2~B1)",
     "levelBadgeColor": "#d97706",
     "category": "週末休閒",
@@ -15805,7 +15805,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0505",
     "date": "05-05",
-    "level": "junior_high",
+    "level": "junior",
     "levelName": "國中挑戰 (A2~B1)",
     "levelBadgeColor": "#d97706",
     "category": "節氣智慧",
@@ -16072,7 +16072,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0507",
     "date": "05-07",
-    "level": "senior_high",
+    "level": "senior",
     "levelName": "高中進階 (B1~B2)",
     "levelBadgeColor": "#7c3aed",
     "category": "深度學習",
@@ -16341,7 +16341,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0509",
     "date": "05-09",
-    "level": "junior_high",
+    "level": "junior",
     "levelName": "國中挑戰 (A2~B1)",
     "levelBadgeColor": "#d97706",
     "category": "感恩企劃",
@@ -16738,7 +16738,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0512",
     "date": "05-12",
-    "level": "senior_high",
+    "level": "senior",
     "levelName": "高中進階 (B1~B2)",
     "levelBadgeColor": "#7c3aed",
     "category": "人文關懷",
@@ -17135,7 +17135,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0515",
     "date": "05-15",
-    "level": "junior_high",
+    "level": "junior",
     "levelName": "國中挑戰 (A2~B1)",
     "levelBadgeColor": "#d97706",
     "category": "家庭情感",
@@ -17404,7 +17404,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0517",
     "date": "05-17",
-    "level": "senior_high",
+    "level": "senior",
     "levelName": "高中進階 (B1~B2)",
     "levelBadgeColor": "#7c3aed",
     "category": "數位公民",
@@ -17546,7 +17546,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0518",
     "date": "05-18",
-    "level": "senior_high",
+    "level": "senior",
     "levelName": "高中進階 (B1~B2)",
     "levelBadgeColor": "#7c3aed",
     "category": "文化美學",
@@ -17816,7 +17816,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0520",
     "date": "05-20",
-    "level": "junior_high",
+    "level": "junior",
     "levelName": "國中挑戰 (A2~B1)",
     "levelBadgeColor": "#d97706",
     "category": "溫馨語彙",
@@ -17958,7 +17958,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0521",
     "date": "05-21",
-    "level": "junior_high",
+    "level": "junior",
     "levelName": "國中挑戰 (A2~B1)",
     "levelBadgeColor": "#d97706",
     "category": "節氣思辨",
@@ -18100,7 +18100,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0522",
     "date": "05-22",
-    "level": "senior_high",
+    "level": "senior",
     "levelName": "高中進階 (B1~B2)",
     "levelBadgeColor": "#7c3aed",
     "category": "生態保育",
@@ -18626,7 +18626,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0526",
     "date": "05-26",
-    "level": "junior_high",
+    "level": "junior",
     "levelName": "國中挑戰 (A2~B1)",
     "levelBadgeColor": "#d97706",
     "category": "民俗體育",
@@ -19026,7 +19026,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0529",
     "date": "05-29",
-    "level": "junior_high",
+    "level": "junior",
     "levelName": "國中挑戰 (A2~B1)",
     "levelBadgeColor": "#d97706",
     "category": "夜市文化",
@@ -19168,7 +19168,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0530",
     "date": "05-30",
-    "level": "senior_high",
+    "level": "senior",
     "levelName": "高中進階 (B1~B2)",
     "levelBadgeColor": "#7c3aed",
     "category": "轉型前瞻",
@@ -19310,7 +19310,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0531",
     "date": "05-31",
-    "level": "senior_high",
+    "level": "senior",
     "levelName": "高中進階 (B1~B2)",
     "levelBadgeColor": "#7c3aed",
     "category": "健康公民",
@@ -19707,7 +19707,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0603",
     "date": "06-03",
-    "level": "junior_high",
+    "level": "junior",
     "levelName": "國中挑戰 (A2~B1)",
     "levelBadgeColor": "#d97706",
     "category": "節慶美食",
@@ -19977,7 +19977,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0605",
     "date": "06-05",
-    "level": "senior_high",
+    "level": "senior",
     "levelName": "高中進階 (B1~B2)",
     "levelBadgeColor": "#7c3aed",
     "category": "地球環境",
@@ -20247,7 +20247,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0607",
     "date": "06-07",
-    "level": "junior_high",
+    "level": "junior",
     "levelName": "國中挑戰 (A2~B1)",
     "levelBadgeColor": "#d97706",
     "category": "熱血競渡",
@@ -20389,7 +20389,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0608",
     "date": "06-08",
-    "level": "senior_high",
+    "level": "senior",
     "levelName": "高中進階 (B1~B2)",
     "levelBadgeColor": "#7c3aed",
     "category": "海洋保育",
@@ -20659,7 +20659,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0610",
     "date": "06-10",
-    "level": "junior_high",
+    "level": "junior",
     "levelName": "國中挑戰 (A2~B1)",
     "levelBadgeColor": "#d97706",
     "category": "節氣智慧",
@@ -20929,7 +20929,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0612",
     "date": "06-12",
-    "level": "senior_high",
+    "level": "senior",
     "levelName": "高中進階 (B1~B2)",
     "levelBadgeColor": "#7c3aed",
     "category": "青春啟程",
@@ -21071,7 +21071,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0613",
     "date": "06-13",
-    "level": "junior_high",
+    "level": "junior",
     "levelName": "國中挑戰 (A2~B1)",
     "levelBadgeColor": "#d97706",
     "category": "畢業紀念",
@@ -21469,7 +21469,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0616",
     "date": "06-16",
-    "level": "senior_high",
+    "level": "senior",
     "levelName": "高中進階 (B1~B2)",
     "levelBadgeColor": "#7c3aed",
     "category": "高效學習",
@@ -21611,7 +21611,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0617",
     "date": "06-17",
-    "level": "junior_high",
+    "level": "junior",
     "levelName": "國中挑戰 (A2~B1)",
     "levelBadgeColor": "#d97706",
     "category": "理化應試",
@@ -22009,7 +22009,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0620",
     "date": "06-20",
-    "level": "senior_high",
+    "level": "senior",
     "levelName": "高中進階 (B1~B2)",
     "levelBadgeColor": "#7c3aed",
     "category": "人權關懷",
@@ -22151,7 +22151,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0621",
     "date": "06-21",
-    "level": "junior_high",
+    "level": "junior",
     "levelName": "國中挑戰 (A2~B1)",
     "levelBadgeColor": "#d97706",
     "category": "夏至天象",
@@ -22549,7 +22549,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0624",
     "date": "06-24",
-    "level": "junior_high",
+    "level": "junior",
     "levelName": "國中挑戰 (A2~B1)",
     "levelBadgeColor": "#d97706",
     "category": "如釋重負",
@@ -22691,7 +22691,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0625",
     "date": "06-25",
-    "level": "senior_high",
+    "level": "senior",
     "levelName": "高中進階 (B1~B2)",
     "levelBadgeColor": "#7c3aed",
     "category": "自我審計",
@@ -23089,7 +23089,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0628",
     "date": "06-28",
-    "level": "junior_high",
+    "level": "junior",
     "levelName": "國中挑戰 (A2~B1)",
     "levelBadgeColor": "#d97706",
     "category": "暑假企劃",
@@ -23359,7 +23359,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0630",
     "date": "06-30",
-    "level": "senior_high",
+    "level": "senior",
     "levelName": "高中進階 (B1~B2)",
     "levelBadgeColor": "#7c3aed",
     "category": "年度折返點",
@@ -23757,7 +23757,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0703",
     "date": "07-03",
-    "level": "junior_high",
+    "level": "junior",
     "levelName": "國中挑戰 (A2~B1)",
     "levelBadgeColor": "#d97706",
     "category": "創客夏令營",
@@ -24155,7 +24155,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0706",
     "date": "07-06",
-    "level": "junior_high",
+    "level": "junior",
     "levelName": "國中挑戰 (A2~B1)",
     "levelBadgeColor": "#d97706",
     "category": "挑戰自我",
@@ -24297,7 +24297,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0707",
     "date": "07-07",
-    "level": "junior_high",
+    "level": "junior",
     "levelName": "國中挑戰 (A2~B1)",
     "levelBadgeColor": "#d97706",
     "category": "節氣智慧",
@@ -24439,7 +24439,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0708",
     "date": "07-08",
-    "level": "senior_high",
+    "level": "senior",
     "levelName": "高中進階 (B1~B2)",
     "levelBadgeColor": "#7c3aed",
     "category": "氣候建築",
@@ -24837,7 +24837,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0711",
     "date": "07-11",
-    "level": "senior_high",
+    "level": "senior",
     "levelName": "高中進階 (B1~B2)",
     "levelBadgeColor": "#7c3aed",
     "category": "全球人口",
@@ -24979,7 +24979,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0712",
     "date": "07-12",
-    "level": "junior_high",
+    "level": "junior",
     "levelName": "國中挑戰 (A2~B1)",
     "levelBadgeColor": "#d97706",
     "category": "高山露營",
@@ -25377,7 +25377,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0715",
     "date": "07-15",
-    "level": "senior_high",
+    "level": "senior",
     "levelName": "高中進階 (B1~B2)",
     "levelBadgeColor": "#7c3aed",
     "category": "青年賦權",
@@ -25647,7 +25647,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0717",
     "date": "07-17",
-    "level": "junior_high",
+    "level": "junior",
     "levelName": "國中挑戰 (A2~B1)",
     "levelBadgeColor": "#d97706",
     "category": "志工服務",
@@ -25917,7 +25917,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0719",
     "date": "07-19",
-    "level": "senior_high",
+    "level": "senior",
     "levelName": "高中進階 (B1~B2)",
     "levelBadgeColor": "#7c3aed",
     "category": "環境與地緣",
@@ -26059,7 +26059,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0720",
     "date": "07-20",
-    "level": "junior_high",
+    "level": "junior",
     "levelName": "國中挑戰 (A2~B1)",
     "levelBadgeColor": "#d97706",
     "category": "太空探索",
@@ -26329,7 +26329,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0722",
     "date": "07-22",
-    "level": "junior_high",
+    "level": "junior",
     "levelName": "國中挑戰 (A2~B1)",
     "levelBadgeColor": "#d97706",
     "category": "盛夏節氣",
@@ -26599,7 +26599,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0724",
     "date": "07-24",
-    "level": "senior_high",
+    "level": "senior",
     "levelName": "高中進階 (B1~B2)",
     "levelBadgeColor": "#7c3aed",
     "category": "未來工作",
@@ -26997,7 +26997,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0727",
     "date": "07-27",
-    "level": "junior_high",
+    "level": "junior",
     "levelName": "國中挑戰 (A2~B1)",
     "levelBadgeColor": "#d97706",
     "category": "創意自媒體",
@@ -27139,7 +27139,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0728",
     "date": "07-28",
-    "level": "senior_high",
+    "level": "senior",
     "levelName": "高中進階 (B1~B2)",
     "levelBadgeColor": "#7c3aed",
     "category": "公衛歷史",
@@ -27409,7 +27409,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0730",
     "date": "07-30",
-    "level": "junior_high",
+    "level": "junior",
     "levelName": "國中挑戰 (A2~B1)",
     "levelBadgeColor": "#d97706",
     "category": "友誼跨越",
@@ -27934,7 +27934,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0803",
     "date": "08-03",
-    "level": "junior_high",
+    "level": "junior",
     "levelName": "國中挑戰 (A2~B1)",
     "levelBadgeColor": "#16a34a",
     "category": "天文科普",
@@ -28062,7 +28062,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0804",
     "date": "08-04",
-    "level": "senior_high",
+    "level": "senior",
     "levelName": "高中進階 (B1~B2)",
     "levelBadgeColor": "#7c3aed",
     "category": "人工智慧",
@@ -28446,7 +28446,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0807",
     "date": "08-07",
-    "level": "junior_high",
+    "level": "junior",
     "levelName": "國中挑戰 (A2~B1)",
     "levelBadgeColor": "#16a34a",
     "category": "傳統節氣",
@@ -28830,7 +28830,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0810",
     "date": "08-10",
-    "level": "senior_high",
+    "level": "senior",
     "levelName": "高中進階 (B1~B2)",
     "levelBadgeColor": "#7c3aed",
     "category": "民俗神話",
@@ -28958,7 +28958,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0811",
     "date": "08-11",
-    "level": "junior_high",
+    "level": "junior",
     "levelName": "國中挑戰 (A2~B1)",
     "levelBadgeColor": "#16a34a",
     "category": "野外求生",
@@ -29086,7 +29086,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0812",
     "date": "08-12",
-    "level": "senior_high",
+    "level": "senior",
     "levelName": "高中進階 (B1~B2)",
     "levelBadgeColor": "#7c3aed",
     "category": "全球公民",
@@ -29470,7 +29470,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0815",
     "date": "08-15",
-    "level": "junior_high",
+    "level": "junior",
     "levelName": "國中挑戰 (A2~B1)",
     "levelBadgeColor": "#16a34a",
     "category": "戶外休閒",
@@ -29726,7 +29726,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0817",
     "date": "08-17",
-    "level": "senior_high",
+    "level": "senior",
     "levelName": "高中進階 (B1~B2)",
     "levelBadgeColor": "#7c3aed",
     "category": "行為經濟學",
@@ -29982,7 +29982,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0819",
     "date": "08-19",
-    "level": "junior_high",
+    "level": "junior",
     "levelName": "國中挑戰 (A2~B1)",
     "levelBadgeColor": "#16a34a",
     "category": "攝影藝術",
@@ -30237,7 +30237,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0821",
     "date": "08-21",
-    "level": "senior_high",
+    "level": "senior",
     "levelName": "高中進階 (B1~B2)",
     "levelBadgeColor": "#7c3aed",
     "category": "心理學與成長",
@@ -30493,7 +30493,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0823",
     "date": "08-23",
-    "level": "junior_high",
+    "level": "junior",
     "levelName": "國中挑戰 (A2~B1)",
     "levelBadgeColor": "#16a34a",
     "category": "傳統節氣",
@@ -30749,7 +30749,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0825",
     "date": "08-25",
-    "level": "senior_high",
+    "level": "senior",
     "levelName": "高中進階 (B1~B2)",
     "levelBadgeColor": "#7c3aed",
     "category": "數位素養",
@@ -31005,7 +31005,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0827",
     "date": "08-27",
-    "level": "junior_high",
+    "level": "junior",
     "levelName": "國中挑戰 (A2~B1)",
     "levelBadgeColor": "#16a34a",
     "category": "開學準備",
@@ -31389,7 +31389,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0830",
     "date": "08-30",
-    "level": "junior_high",
+    "level": "junior",
     "levelName": "國中挑戰 (A2~B1)",
     "levelBadgeColor": "#16a34a",
     "category": "暑期總結",
@@ -31517,7 +31517,7 @@ window.DAILY_DIALOGUES = [
   {
     "id": "dialogue-0831",
     "date": "08-31",
-    "level": "senior_high",
+    "level": "senior",
     "levelName": "高中進階 (B1~B2)",
     "levelBadgeColor": "#7c3aed",
     "category": "年度圓滿",
